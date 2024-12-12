@@ -43,7 +43,7 @@ def main():
     st.set_page_config(page_title="Ingredient Recipe Finder", page_icon="🍴")
 
  
-    st.title("🍳 Spoonacular Recipe Recommender")
+    st.title("🍳Recipe Recommender")
 
     api_key = os.getenv("SPOONACULAR_API_KEY")
     if not api_key:
@@ -99,7 +99,7 @@ def main():
 
                     with col:
                         # Display recipe card
-                        st.image(recipe['image'], use_column_width=True)
+                        st.image(recipe['image'], use_container_width=True)
                         st.subheader(recipe['title'])
 
                         used_ingredients = ', '.join(
