@@ -1,14 +1,8 @@
 import os
 import requests
 import streamlit as st
-from dotenv import load_dotenv
 import os
 
-# Load environment variables from .env file
-load_dotenv()
-
-# Access the API key
-api_key = os.getenv("SPOONACULAR_API_KEY")
 class SpoonacularRecipeRecommender:
     def __init__(self, api_key):
         self.api_key = api_key
@@ -46,23 +40,20 @@ class SpoonacularRecipeRecommender:
             return None
 
 def main():
-    # Page configuration
     st.set_page_config(page_title="Ingredient Recipe Finder", page_icon="🍴")
 
-    # Title
+ 
     st.title("🍳 Spoonacular Recipe Recommender")
 
-    # Load API Key from environment variable
     api_key = os.getenv("SPOONACULAR_API_KEY")
     if not api_key:
         st.error("API Key not found. Please set the SPOONACULAR_API_KEY environment variable.")
         return
 
-    # Initialize session state for ingredients
     if 'ingredients' not in st.session_state:
         st.session_state.ingredients = []
 
-    # Ingredients input with multiple entries
+  
     st.header("🥬 Find Recipes by Ingredients")
 
     new_ingredient = st.text_input(
